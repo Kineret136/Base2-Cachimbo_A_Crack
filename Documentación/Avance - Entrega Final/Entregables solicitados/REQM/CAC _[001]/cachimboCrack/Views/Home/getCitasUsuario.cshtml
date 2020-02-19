@@ -1,0 +1,62 @@
+﻿@model IEnumerable<cachimboCrack.Models.cita>
+
+@{
+    ViewBag.Title = "getCitasUsuario";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+        <br />
+        <p>
+            @Html.ActionLink("Retornar", "menuAlumno")
+        </p>
+        <center><h2>Citas de  @Session["usuarioAlumno"]</h2></center>
+
+        
+        <table class="table">
+            <tr>
+                <th>
+                    Tipo
+                </th>
+                <th>
+                    Día
+                </th>
+                <th>
+                    Hora
+                </th>
+                <th>
+                    Participante
+                </th>
+            </tr>
+            @{
+                string descripcionCita = "";
+                int tipoCita = 0;
+                foreach (var item in Model)
+                {
+                    tipoCita = (int)item.tipoCita;
+                    if (tipoCita == 1)
+                    {
+                        descripcionCita = "Quiero aprender";
+                    }
+                    else
+                    {
+                        descripcionCita = "Quiero enseñar";
+                    }
+                    <tr>
+                        <td>
+                            @descripcionCita
+                        </td>
+                        <td>
+                            @Convert.ToString(string.Format("{0:dd/MM/yyyy}", item.diaCita))
+                            @*@Html.DisplayFor(modelItem => item.diaCita)*@
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.horaCita)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.codigoParticipante)
+                        </td>
+                    </tr>
+                }
+            }
+        </table>
+    </body>

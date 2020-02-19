@@ -1,0 +1,72 @@
+﻿@model IEnumerable<cachimboCrack.Models.alumno>
+
+@{
+    ViewBag.Title = "getPerfil";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+    <body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+        <br />
+        <p>
+            @Html.ActionLink("Retornar", "menuAlumno")
+        </p>
+        <center><h2>Información de  @Session["usuarioAlumno"]</h2></center>
+        <table class="table">
+            <tr>
+                <th>
+                    Nombre
+                </th>
+                <th>
+                    Apellido
+                </th>
+                <th>
+                    Celular
+                </th>
+                <th>
+                    Correo
+                </th>
+                <th>
+                    Nivel
+                </th>
+                <th>
+                    Créditos
+                </th>
+                <th>
+                    Carrera
+                </th>
+                <th>
+                    Actualizar
+                </th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nombreAlumno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.apellidoAlumno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.celularAlumno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.correoAlumno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.nivelAlumno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.creditoAlumno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.carrera.nombreCarrea)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Editar", "../alumnoes/Edit", new { id = item.usuarioAlumno })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </body>

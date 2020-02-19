@@ -1,0 +1,59 @@
+﻿@model cachimboCrack.Models.cita
+
+@{
+    ViewBag.Title = "Registrar cita";
+}
+
+    <body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+        <center>
+            <h2>Registrar cita en el curso @Session["nombreCurso"]</h2>
+
+
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
+
+                <div class="form-horizontal">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.tipoCita, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.RadioButtonFor(model => model.tipoCita, 1) Quiero aprender
+                            @Html.RadioButtonFor(model => model.tipoCita, 2) Quiero enseñar
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.diaCita, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.diaCita, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.diaCita, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        @Html.LabelFor(model => model.horaCita, htmlAttributes: new { @class = "control-label col-md-2" })
+                        <div class="col-md-10">
+                            @Html.EditorFor(model => model.horaCita, new { htmlAttributes = new { @class = "form-control" } })
+                            @Html.ValidationMessageFor(model => model.horaCita, "", new { @class = "text-danger" })
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <div class="col-md-offset-2 col-md-10">
+                            <input type="submit" value="Registrar" class="btn btn-default" />
+                        </div>
+                    </div>
+                </div>
+            }
+
+            <div>
+                @Html.ActionLink("Retornar", "citaCurso", new { codigoCurso = Session["codigoCurso"], nombreCurso = Session["nombreCurso"] })
+            </div>
+        </center>
+    </body>
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Cachimbo a Crack</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="@Url.Content("~/Content/imágenes/logo/logo.png")" height="50" width="40" />
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li>@Html.ActionLink("Inicio", "Index", "Home")</li>
+                    <li>@Html.ActionLink("Nosotros", "About", "Home")</li>
+                    <li>@Html.ActionLink("Contacto", "Contact", "Home")</li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    @{
+                        string usuarioAlumno = (string)Session["usuarioAlumno"];
+                        if (usuarioAlumno == null)
+                        {
+                            <li>@Html.ActionLink("Inicio de sesión", "../Home/login", "Home")</li>
+                            <li>@Html.ActionLink("Registro", "../alumnoes/create", "Home")</li>
+                        }
+                        else
+                        {
+                            <li>@Html.ActionLink("Perfil", "../Home/getPerfil")</li>
+                            <li>@Html.ActionLink("Citas", "../Home/getCitasUsuario")</li>
+                            <li>@Html.ActionLink("Cerrar sesión", "../Home/cerrarSesion")</li>
+                        }
+                        //{ Session["usuarioAlumno"] = null }
+                    }
+                </ul>       
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer style="background-color:  #eaf2f1 ;">
+            <center>
+                <p>
+                    Cachimbo a Crack
+                    <br />Universidad Tecnológica del Perú - Desarrollo de Software 1
+                    <br />Copyright &copy;  @DateTime.Now.Year - Gerencia de Desarrollo, Base 2 S.A.C. Derechos Reservados
+                </p>
+            </center>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

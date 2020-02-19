@@ -1,0 +1,73 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="cachimboCrackModelStoreContainer" CdmEntityContainer="cachimboEntities">
+    <EntitySetMapping Name="alumno">
+      <EntityTypeMapping TypeName="cachimboCrackModel.alumno">
+        <MappingFragment StoreEntitySet="alumno">
+          <ScalarProperty Name="usuarioAlumno" ColumnName="usuarioAlumno" />
+          <ScalarProperty Name="codigoCarrera" ColumnName="codigoCarrera" />
+          <ScalarProperty Name="contraseñaAlumno" ColumnName="contraseñaAlumno" />
+          <ScalarProperty Name="nombreAlumno" ColumnName="nombreAlumno" />
+          <ScalarProperty Name="apellidoAlumno" ColumnName="apellidoAlumno" />
+          <ScalarProperty Name="celularAlumno" ColumnName="celularAlumno" />
+          <ScalarProperty Name="correoAlumno" ColumnName="correoAlumno" />
+          <ScalarProperty Name="nivelAlumno" ColumnName="nivelAlumno" />
+          <ScalarProperty Name="creditoAlumno" ColumnName="creditoAlumno" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="area">
+      <EntityTypeMapping TypeName="cachimboCrackModel.area">
+        <MappingFragment StoreEntitySet="area">
+          <ScalarProperty Name="codigoArea" ColumnName="codigoArea" />
+          <ScalarProperty Name="nombreArea" ColumnName="nombreArea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="carrera">
+      <EntityTypeMapping TypeName="cachimboCrackModel.carrera">
+        <MappingFragment StoreEntitySet="carrera">
+          <ScalarProperty Name="codigoCarrera" ColumnName="codigoCarrera" />
+          <ScalarProperty Name="codigoArea" ColumnName="codigoArea" />
+          <ScalarProperty Name="nombreCarrea" ColumnName="nombreCarrea" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="cita">
+      <EntityTypeMapping TypeName="cachimboCrackModel.cita">
+        <MappingFragment StoreEntitySet="cita">
+          <ScalarProperty Name="tipoCita" ColumnName="tipoCita" />
+          <ScalarProperty Name="codigoCita" ColumnName="codigoCita" />
+          <ScalarProperty Name="usuarioAlumno" ColumnName="usuarioAlumno" />
+          <ScalarProperty Name="codigoCurso" ColumnName="codigoCurso" />
+          <ScalarProperty Name="diaCita" ColumnName="diaCita" />
+          <ScalarProperty Name="horaCita" ColumnName="horaCita" />
+          <ScalarProperty Name="codigoParticipante" ColumnName="codigoParticipante" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="curso">
+      <EntityTypeMapping TypeName="cachimboCrackModel.curso">
+        <MappingFragment StoreEntitySet="curso">
+          <ScalarProperty Name="codigoCurso" ColumnName="codigoCurso" />
+          <ScalarProperty Name="codigoArea" ColumnName="codigoArea" />
+          <ScalarProperty Name="nombreCurso" ColumnName="nombreCurso" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="valoracion">
+      <EntityTypeMapping TypeName="cachimboCrackModel.valoracion">
+        <MappingFragment StoreEntitySet="valoracion">
+          <ScalarProperty Name="codigoValoracion" ColumnName="codigoValoracion" />
+          <ScalarProperty Name="usuarioAlumno" ColumnName="usuarioAlumno" />
+          <ScalarProperty Name="codigoCurso" ColumnName="codigoCurso" />
+          <ScalarProperty Name="enseñaValoracion" ColumnName="enseñaValoracion" />
+          <ScalarProperty Name="aprendeValoracion" ColumnName="aprendeValoracion" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <FunctionImportMapping FunctionImportName="registrarCita" FunctionName="cachimboCrackModel.Store.registrarCita" />
+    <FunctionImportMapping FunctionImportName="inscribirCita" FunctionName="cachimboCrackModel.Store.inscribirCita" />
+    <FunctionImportMapping FunctionImportName="registrarAlumno1" FunctionName="cachimboCrackModel.Store.registrarAlumno" />
+  </EntityContainerMapping>
+</Mapping>

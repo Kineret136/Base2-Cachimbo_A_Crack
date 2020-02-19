@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="948a3b2bd3654bc1aaab79be093bc0f3" Name="Diagram1">
+        <EntityTypeShape EntityType="cachimboCrackModel.alumno" Width="1.5" PointX="5.25" PointY="2.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="cachimboCrackModel.area" Width="1.5" PointX="0.75" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="cachimboCrackModel.carrera" Width="1.5" PointX="3" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cachimboCrackModel.cita" Width="1.5" PointX="7.5" PointY="4.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="cachimboCrackModel.curso" Width="1.5" PointX="3" PointY="6.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="cachimboCrackModel.valoracion" Width="1.5" PointX="10.5" PointY="4.5" IsExpanded="true" />
+        <AssociationConnector Association="cachimboCrackModel.relacion3" ManuallyRouted="false" />
+        <AssociationConnector Association="cachimboCrackModel.relacion4" ManuallyRouted="false" />
+        <AssociationConnector Association="cachimboCrackModel.relacion6" ManuallyRouted="false" />
+        <AssociationConnector Association="cachimboCrackModel.relacion1" ManuallyRouted="false" />
+        <AssociationConnector Association="cachimboCrackModel.relacion2" ManuallyRouted="false" />
+        <AssociationConnector Association="cachimboCrackModel.relacion5" ManuallyRouted="false" />
+        <AssociationConnector Association="cachimboCrackModel.relacion7" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

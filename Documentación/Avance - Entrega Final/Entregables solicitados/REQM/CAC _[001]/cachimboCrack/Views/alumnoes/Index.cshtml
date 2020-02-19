@@ -1,0 +1,80 @@
+﻿@model IEnumerable<cachimboCrack.Models.alumno>
+
+@{
+    ViewBag.Title = "Index";
+}
+<h2>
+    Mantenimiento de Alumnos
+</h2>
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<p>
+    @Html.ActionLink("Retornar", "../Home/IndexAdmin")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.contraseñaAlumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nombreAlumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.apellidoAlumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.celularAlumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.correoAlumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.nivelAlumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.creditoAlumno)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.carrera.nombreCarrea)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.contraseñaAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombreAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.apellidoAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.celularAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.correoAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nivelAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.creditoAlumno)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.carrera.nombreCarrea)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.usuarioAlumno }) |
+                @Html.ActionLink("Details", "Details", new { id = item.usuarioAlumno }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.usuarioAlumno })
+            </td>
+        </tr>
+    }
+
+</table>

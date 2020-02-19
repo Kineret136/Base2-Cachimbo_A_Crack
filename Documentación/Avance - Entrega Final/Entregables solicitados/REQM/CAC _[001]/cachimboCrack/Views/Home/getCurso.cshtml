@@ -1,0 +1,39 @@
+﻿@model IEnumerable<cachimboCrack.Models.curso>
+
+@{
+    ViewBag.Title = "Cursos";
+}
+<br />
+<h4>
+    @Html.ActionLink("Retornar", "getArea")
+</h4>
+
+<center><h2>Cursos del área de @Session["nombreArea"]</h2></center>
+
+
+
+<body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Citas
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreCurso)
+                </td>
+                <td>
+                    @Html.ActionLink("Ver", "../citas/citaCurso", new { codigoCurso = item.codigoCurso, nombreCurso = item.nombreCurso })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

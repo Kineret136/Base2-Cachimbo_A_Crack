@@ -1,0 +1,35 @@
+﻿@model cachimboCrack.Models.curso
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>curso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreCurso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreCurso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.area.nombreArea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.area.nombreArea)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.codigoCurso }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

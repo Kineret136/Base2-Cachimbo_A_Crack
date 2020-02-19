@@ -1,0 +1,53 @@
+﻿@model IEnumerable<cachimboCrack.Models.area>
+
+@{
+    ViewBag.Title = "Áreas académicas";
+}
+<br />
+<h4>
+    @Html.ActionLink("Retornar", "menuAlumno")
+</h4>
+
+<center><h2>Áreas académicas</h2></center>
+
+
+<!--
+<p>
+    @Html.ActionLink("Lista de Citas", "../citas/Index")
+</p>
+<p>
+    @Html.ActionLink("Lista de Alumnos", "../alumnoes/Index")
+</p>
+-->
+
+<body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+    <table class="table">
+        <tr>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Referencia
+            </th>
+            <th>
+                Cursos
+            </th>
+        </tr>
+
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.nombreArea)
+                </td>
+                <td>
+                    <img src="@Url.Content("~/Content/imágenes/area/"+item.codigoArea+".jpg")" height="150" width="200" />
+                </td>
+                <td>
+                    @Html.ActionLink("Ver", "getCurso", new { codigoArea = item.codigoArea, nombreArea = item.nombreArea })
+                </td>
+            </tr>
+        }
+
+    </table>
+</body>

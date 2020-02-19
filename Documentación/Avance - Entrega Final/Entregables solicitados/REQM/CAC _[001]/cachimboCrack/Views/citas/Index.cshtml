@@ -1,0 +1,69 @@
+﻿@model IEnumerable<cachimboCrack.Models.cita>
+
+@{
+    ViewBag.Title = "Index";
+}
+    <body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+        <h2>
+            Mantenimiento de Citas
+        </h2>
+        <p>
+            @Html.ActionLink("Create New", "Create")
+        </p>
+        <p>
+            @Html.ActionLink("Retornar", "../Home/IndexAdmin")
+        </p>
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.tipoCita)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.diaCita)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.horaCita)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.codigoParticipante)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.alumno.contraseñaAlumno)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.curso.nombreCurso)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.tipoCita)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.diaCita)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.horaCita)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.codigoParticipante)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.alumno.contraseñaAlumno)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.curso.nombreCurso)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.codigoCita }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.codigoCita }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.codigoCita })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </body>

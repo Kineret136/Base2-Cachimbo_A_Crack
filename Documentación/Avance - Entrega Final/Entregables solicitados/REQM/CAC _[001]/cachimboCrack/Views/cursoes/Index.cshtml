@@ -1,0 +1,47 @@
+﻿@model IEnumerable<cachimboCrack.Models.curso>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Cursos</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+
+<p>
+    @Html.ActionLink("Back", "../Home/IndexAdmin")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Nombre
+        </th>
+        <th>
+            Área
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.nombreCurso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.area.nombreArea)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.codigoCurso }) |
+            @Html.ActionLink("Details", "Details", new { id=item.codigoCurso }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.codigoCurso })
+        </td>
+    </tr>
+}
+
+</table>

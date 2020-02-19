@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="cachimboCrackModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="alumno">
+    <Key>
+      <PropertyRef Name="usuarioAlumno" />
+    </Key>
+    <Property Name="usuarioAlumno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigoCarrera" Type="int" Nullable="false" />
+    <Property Name="contraseñaAlumno" Type="varchar" MaxLength="50" />
+    <Property Name="nombreAlumno" Type="varchar" MaxLength="50" />
+    <Property Name="apellidoAlumno" Type="varchar" MaxLength="50" />
+    <Property Name="celularAlumno" Type="varchar" MaxLength="50" />
+    <Property Name="correoAlumno" Type="varchar" MaxLength="50" />
+    <Property Name="nivelAlumno" Type="varchar" MaxLength="50" />
+    <Property Name="creditoAlumno" Type="int" />
+  </EntityType>
+  <EntityType Name="area">
+    <Key>
+      <PropertyRef Name="codigoArea" />
+    </Key>
+    <Property Name="codigoArea" Type="int" Nullable="false" />
+    <Property Name="nombreArea" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="carrera">
+    <Key>
+      <PropertyRef Name="codigoCarrera" />
+    </Key>
+    <Property Name="codigoCarrera" Type="int" Nullable="false" />
+    <Property Name="codigoArea" Type="int" Nullable="false" />
+    <Property Name="nombreCarrea" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="cita">
+    <Key>
+      <PropertyRef Name="codigoCita" />
+    </Key>
+    <Property Name="codigoCita" Type="int" Nullable="false" />
+    <Property Name="usuarioAlumno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigoCurso" Type="int" Nullable="false" />
+    <Property Name="tipoCita" Type="int" />
+    <Property Name="diaCita" Type="date" />
+    <Property Name="horaCita" Type="time" Precision="0" />
+    <Property Name="codigoParticipante" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="curso">
+    <Key>
+      <PropertyRef Name="codigoCurso" />
+    </Key>
+    <Property Name="codigoCurso" Type="int" Nullable="false" />
+    <Property Name="codigoArea" Type="int" Nullable="false" />
+    <Property Name="nombreCurso" Type="varchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="valoracion">
+    <Key>
+      <PropertyRef Name="codigoValoracion" />
+    </Key>
+    <Property Name="codigoValoracion" Type="int" Nullable="false" />
+    <Property Name="usuarioAlumno" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="codigoCurso" Type="int" Nullable="false" />
+    <Property Name="enseñaValoracion" Type="decimal" Precision="10" Scale="2" />
+    <Property Name="aprendeValoracion" Type="decimal" Precision="10" Scale="2" />
+  </EntityType>
+  <Association Name="relacion1">
+    <End Role="area" Type="Self.area" Multiplicity="1" />
+    <End Role="carrera" Type="Self.carrera" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="area">
+        <PropertyRef Name="codigoArea" />
+      </Principal>
+      <Dependent Role="carrera">
+        <PropertyRef Name="codigoArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="relacion2">
+    <End Role="area" Type="Self.area" Multiplicity="1" />
+    <End Role="curso" Type="Self.curso" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="area">
+        <PropertyRef Name="codigoArea" />
+      </Principal>
+      <Dependent Role="curso">
+        <PropertyRef Name="codigoArea" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="relacion3">
+    <End Role="carrera" Type="Self.carrera" Multiplicity="1" />
+    <End Role="alumno" Type="Self.alumno" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="carrera">
+        <PropertyRef Name="codigoCarrera" />
+      </Principal>
+      <Dependent Role="alumno">
+        <PropertyRef Name="codigoCarrera" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="relacion4">
+    <End Role="alumno" Type="Self.alumno" Multiplicity="1" />
+    <End Role="cita" Type="Self.cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alumno">
+        <PropertyRef Name="usuarioAlumno" />
+      </Principal>
+      <Dependent Role="cita">
+        <PropertyRef Name="usuarioAlumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="relacion5">
+    <End Role="curso" Type="Self.curso" Multiplicity="1" />
+    <End Role="cita" Type="Self.cita" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="codigoCurso" />
+      </Principal>
+      <Dependent Role="cita">
+        <PropertyRef Name="codigoCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="relacion6">
+    <End Role="alumno" Type="Self.alumno" Multiplicity="1" />
+    <End Role="valoracion" Type="Self.valoracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="alumno">
+        <PropertyRef Name="usuarioAlumno" />
+      </Principal>
+      <Dependent Role="valoracion">
+        <PropertyRef Name="usuarioAlumno" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="relacion7">
+    <End Role="curso" Type="Self.curso" Multiplicity="1" />
+    <End Role="valoracion" Type="Self.valoracion" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="curso">
+        <PropertyRef Name="codigoCurso" />
+      </Principal>
+      <Dependent Role="valoracion">
+        <PropertyRef Name="codigoCurso" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Function Name="inscribirCita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="codigoCita" Type="int" Mode="In" />
+    <Parameter Name="codigoParticipante" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="registrarAlumno" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuarioAlumno" Type="varchar" Mode="In" />
+    <Parameter Name="codigoCarrera" Type="int" Mode="In" />
+    <Parameter Name="contraseñaAlumno" Type="varchar" Mode="In" />
+    <Parameter Name="nombreAlumno" Type="varchar" Mode="In" />
+    <Parameter Name="apellidoAlumno" Type="varchar" Mode="In" />
+    <Parameter Name="celularAlumno" Type="varchar" Mode="In" />
+    <Parameter Name="correoAlumno" Type="varchar" Mode="In" />
+  </Function>
+  <Function Name="registrarCita" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+    <Parameter Name="usuarioAlumno" Type="varchar" Mode="In" />
+    <Parameter Name="codigoCurso" Type="int" Mode="In" />
+    <Parameter Name="tipoCita" Type="int" Mode="In" />
+    <Parameter Name="diaCita" Type="date" Mode="In" />
+    <Parameter Name="horaCita" Type="time" Mode="In" />
+  </Function>
+  <EntityContainer Name="cachimboCrackModelStoreContainer">
+    <EntitySet Name="alumno" EntityType="Self.alumno" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="area" EntityType="Self.area" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="carrera" EntityType="Self.carrera" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="cita" EntityType="Self.cita" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="curso" EntityType="Self.curso" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="valoracion" EntityType="Self.valoracion" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="relacion1" Association="Self.relacion1">
+      <End Role="area" EntitySet="area" />
+      <End Role="carrera" EntitySet="carrera" />
+    </AssociationSet>
+    <AssociationSet Name="relacion2" Association="Self.relacion2">
+      <End Role="area" EntitySet="area" />
+      <End Role="curso" EntitySet="curso" />
+    </AssociationSet>
+    <AssociationSet Name="relacion3" Association="Self.relacion3">
+      <End Role="carrera" EntitySet="carrera" />
+      <End Role="alumno" EntitySet="alumno" />
+    </AssociationSet>
+    <AssociationSet Name="relacion4" Association="Self.relacion4">
+      <End Role="alumno" EntitySet="alumno" />
+      <End Role="cita" EntitySet="cita" />
+    </AssociationSet>
+    <AssociationSet Name="relacion5" Association="Self.relacion5">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="cita" EntitySet="cita" />
+    </AssociationSet>
+    <AssociationSet Name="relacion6" Association="Self.relacion6">
+      <End Role="alumno" EntitySet="alumno" />
+      <End Role="valoracion" EntitySet="valoracion" />
+    </AssociationSet>
+    <AssociationSet Name="relacion7" Association="Self.relacion7">
+      <End Role="curso" EntitySet="curso" />
+      <End Role="valoracion" EntitySet="valoracion" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

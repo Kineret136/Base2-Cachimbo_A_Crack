@@ -1,0 +1,83 @@
+﻿@model cachimboCrack.Models.alumno
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>alumno</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.contraseñaAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.contraseñaAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nombreAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nombreAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.apellidoAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.apellidoAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.celularAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.celularAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.correoAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.correoAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.nivelAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.nivelAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.creditoAlumno)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.creditoAlumno)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.carrera.nombreCarrea)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.carrera.nombreCarrea)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.usuarioAlumno }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

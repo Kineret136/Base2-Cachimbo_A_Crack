@@ -1,0 +1,42 @@
+﻿@model IEnumerable<cachimboCrack.Models.area>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+<body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+    <center>
+        <nav>
+            <img src="@Url.Content("~/Content/imágenes/logo/logoIndex.png")" height="200" width="200" />
+            <h1>Bienvenido @Session["usuarioAlumno"]</h1>
+            <br />
+            <h2>Usted es el Crack</h2>
+            <br />
+        </nav>
+        <section>
+            <table>
+                <tr>
+                    <td align="center" colspan="6"><h3>¿Qué desea administrar?</h3></td>
+                </tr>
+                <tr>
+                    <td align="center"><label>@Html.ActionLink("Áreas académicas", "../areas/Index")</label></td>
+                    <td align="center"><label>@Html.ActionLink("Carreras", "../carreras/Index")</label></td>
+                    <td align="center"><label>@Html.ActionLink("Cursos", "../cursoes/Index")</label></td>
+                    <td align="center"><label>@Html.ActionLink("Alumnos", "../alumnoes1/Index")</label></td>
+                    <td align="center"><label>@Html.ActionLink("Citas", "../citas1/Index")</label></td>
+                    <td align="center"><label>@Html.ActionLink("Valoraciones", "../valoracions/Index")</label></td>
+                </tr>
+                <tr>
+                    <th><img src="@Url.Content("~/Content/imágenes/tablas/áreasAcadémica.jpg")" height="200" width="200" /></th>
+                    <th><img src="@Url.Content("~/Content/imágenes/tablas/carreras.jpg")" height="200" width="200" /></th>
+                    <th><img src="@Url.Content("~/Content/imágenes/tablas/cursos.jpg")" height="200" width="200" /></th>
+                    <th><img src="@Url.Content("~/Content/imágenes/tablas/alumnos.jpg")" height="200" width="200" /></th>
+                    <th><img src="@Url.Content("~/Content/imágenes/tablas/citas.jpg")" height="200" width="200" /></th>
+                    <th><img src="@Url.Content("~/Content/imágenes/tablas/valoración.jpg")" height="200" width="200" /></th>
+                </tr>
+            </table>
+        </section>
+        <br />
+        <br />
+    </center>
+</body>

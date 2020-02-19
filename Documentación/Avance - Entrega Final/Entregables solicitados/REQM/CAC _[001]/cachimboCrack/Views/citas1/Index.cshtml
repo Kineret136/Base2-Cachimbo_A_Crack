@@ -1,0 +1,67 @@
+﻿@model IEnumerable<cachimboCrack.Models.cita>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Citas</h2>
+
+<p>
+    @Html.ActionLink("Back", "../Home/IndexAdmin")
+</p>
+
+<table class="table">
+    <tr>
+        <th>
+            Tipo
+        </th>
+        <th>
+            Día
+        </th>
+        <th>
+            Hora
+        </th>
+        <th>
+            Alumno
+        </th>
+        <th>
+            Participante
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.curso.nombreCurso)
+        </th>
+        <th>
+            Acciones
+        </th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.tipoCita)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.diaCita)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.horaCita)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.usuarioAlumno)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.codigoParticipante)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.curso.nombreCurso)
+    </td>
+    <td>
+        @Html.ActionLink("Edit", "Edit", new { id = item.codigoCita }) |
+        @Html.ActionLink("Details", "Details", new { id = item.codigoCita }) |
+        @Html.ActionLink("Delete", "Delete", new { id = item.codigoCita })
+    </td>
+</tr>
+}
+
+</table>

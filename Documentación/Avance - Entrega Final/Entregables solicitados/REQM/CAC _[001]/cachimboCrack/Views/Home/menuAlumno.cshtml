@@ -1,0 +1,38 @@
+﻿@{
+    ViewBag.Title = "Menu";
+
+}
+    <body background="~/Content/imágenes/fondo/bordeCircuito.jpg"> 
+        <center>
+            <img src="@Url.Content("~/Content/imágenes/logo/logoIndex.png")" height="200" width="200" />
+            <h1>Bienvenido  @Session["usuarioAlumno"]</h1>
+            <h2>El futuro está en tus manos</h2>
+            <br />
+            <address>
+                <table>
+                    <tr>
+                        <td align="center">
+                            <h3>@Html.ActionLink("Áreas", "getArea")</h3>
+                        </td>
+                        <td align="center">
+                            <h3>@Html.ActionLink("Cursos", "getCursoTotal")</h3>
+                        </td>
+                        <td align="center">
+                            <h3>@Html.ActionLink("Citas", "getCita")</h3>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td align="center">
+                            <img src="@Url.Content("~/Content/imágenes/layout/areaAcademicaMenu.jpg")" height="300" width="500" />
+                        </td>
+                        <td align="center">
+                            <img src="@Url.Content("~/Content/imágenes/layout/cursosMenu.png")" height="300" width="300" />
+                        </td>
+                        <td align="center">
+                            <img src="@Url.Content("~/Content/imágenes/layout/citasMenu.jpg")" height="300" width="300" />
+                        </td>
+                    </tr>
+                </table>
+            </address>
+        </center>
+    </body>

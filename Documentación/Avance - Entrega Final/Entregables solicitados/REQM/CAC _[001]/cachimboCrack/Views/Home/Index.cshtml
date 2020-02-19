@@ -1,0 +1,49 @@
+﻿@model IEnumerable<cachimboCrack.Models.area>
+
+@{
+    ViewBag.Title = "Inicio";
+}
+
+    <body background="~/Content/imágenes/fondo/bordeCircuito.jpg">
+        <center>
+            <nav>
+                <img src="@Url.Content("~/Content/imágenes/logo/logoIndex.png")" height="200" width="200" />
+                <h1>La escuela online de formación profesional</h1>
+                <br />
+            </nav>
+            <section>
+                @{
+                    string usuarioAlumno = (string)Session["usuarioAlumno"];
+                    if (usuarioAlumno == null)
+                    {
+                            <h3>@Html.ActionLink("¡Comienza ahora!", "login")</h3>
+                    }
+                    else
+                    {
+                            <h3>@Html.ActionLink("¡Comienza ahora!", "menuAlumno")</h3>
+                    }
+                }
+            
+                <br />
+                <table>
+                    <tr>
+                        <td align="center" colspan="4"><h3>¿En qué áreas te quieres especializar?</h3></td>
+                    </tr>
+                    <tr>
+                        <td align="center"><label>Ingeniería</label></td>
+                        <td align="center"><label>Ciencas Básicas</label></td>
+                        <td align="center"><label>Ciencias Económicas y de Gestión</label></td>
+                        <td align="center"><label>Humanidades</label></td>
+                    </tr>
+                    <tr>
+                        <th><img src="@Url.Content("~/Content/imágenes/area/1.jpg")" height="150" width="200" /></th>
+                        <th><img src="@Url.Content("~/Content/imágenes/area/2.jpg")" height="150" width="200" /></th>
+                        <th><img src="@Url.Content("~/Content/imágenes/area/3.jpg")" height="150" width="200" /></th>
+                        <th><img src="@Url.Content("~/Content/imágenes/area/4.jpg")" height="150" width="200" /></th>
+                    </tr>
+                </table>
+            </section>
+            <br />
+            <br />
+        </center>
+    </body>
